@@ -1,12 +1,12 @@
 Summary:	Jakarta Commons BeanUtils - Bean Introspection Utilities
 Summary(pl):	Jakarta Commons BeanUtils - narzêdzia do badania JavaBeans
 Name:		jakarta-commons-beanutils
-Version:	1.6.1
+Version:	1.7.0
 Release:	1
 License:	Apache
 Group:		Development/Languages/Java
 Source0:	http://sunsite.icm.edu.pl/pub/www/apache/dist/jakarta/commons/beanutils/binaries/commons-beanutils-%{version}.tar.gz
-# Source0-md5:	846d578ab2e703c5ab179ed56270550e
+# Source0-md5:	d1571ce9d6ec3d1795364cc44f3d116e
 URL:		http://jakarta.apache.org/
 Requires:	jre
 BuildArch:	noarch
