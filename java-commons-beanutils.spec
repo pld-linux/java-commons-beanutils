@@ -6,6 +6,7 @@ Release:	1
 License:	Apache
 Group:		Development/Languages/Java
 Source0:	http://sunsite.icm.edu.pl/pub/www/apache/dist/jakarta/commons/beanutils/binaries/commons-beanutils-%{version}.tar.gz
+# Source0-md5:	846d578ab2e703c5ab179ed56270550e
 URL:		http://jakarta.apache.org/
 Requires:	jre
 BuildArch:	noarch
