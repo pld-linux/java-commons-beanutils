@@ -1,5 +1,5 @@
 Summary:	Jakarta Commons BeanUtils - Bean Introspection Utilities
-Summary(pl):	Jakarta Commons BeanUtils - narzêdzia do badania JavaBeans
+Summary(pl.UTF-8):   Jakarta Commons BeanUtils - narzÄ™dzia do badania JavaBeans
 Name:		jakarta-commons-beanutils
 Version:	1.7.0
 Release:	1
@@ -21,22 +21,22 @@ setting property values on Java classes that follow the naming design
 patterns outlined in the JavaBeans Specification, as well as
 mechanisms for dynamically defining and accessing bean properties.
 
-%description -l pl
+%description -l pl.UTF-8
 Komponent Bean Instrospection Utilities z podprojektu Jakarta Commons
-oferuje niskopoziomowe klasy narzêdziowe pomagaj±ce w odczytywaniu i
-ustawianiu warto¶ci sk³adowych klas Javy zgodnych ze wzorcami
-nazewnictwa okre¶lonymi w specyfikacji JavaBeans oraz mechanizmy do
-dynamicznego definiowania i dostêpu do sk³adowych.
+oferuje niskopoziomowe klasy narzÄ™dziowe pomagajÄ…ce w odczytywaniu i
+ustawianiu wartoÅ›ci skÅ‚adowych klas Javy zgodnych ze wzorcami
+nazewnictwa okreÅ›lonymi w specyfikacji JavaBeans oraz mechanizmy do
+dynamicznego definiowania i dostÄ™pu do skÅ‚adowych.
 
 %package doc
 Summary:	Jakarta Commons BeanUtils documentation
-Summary(pl):	Dokumentacja do Jakarta Commons BeanUtils
+Summary(pl.UTF-8):   Dokumentacja do Jakarta Commons BeanUtils
 Group:		Development/Languages/Java
 
 %description doc
 Jakarta Commons BeanUtils documentation.
 
-%description doc -l pl
+%description doc -l pl.UTF-8
 Dokumentacja do Jakarta Commons BeanUtils.
 
 %prep
