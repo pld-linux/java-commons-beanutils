@@ -1,5 +1,5 @@
 Summary:	Jakarta Commons BeanUtils - Bean Introspection Utilities
-Summary(pl.UTF-8):   Jakarta Commons BeanUtils - narzędzia do badania JavaBeans
+Summary(pl.UTF-8):	Jakarta Commons BeanUtils - narzędzia do badania JavaBeans
 Name:		jakarta-commons-beanutils
 Version:	1.7.0
 Release:	1
@@ -30,7 +30,7 @@ dynamicznego definiowania i dostępu do składowych.
 
 %package doc
 Summary:	Jakarta Commons BeanUtils documentation
-Summary(pl.UTF-8):   Dokumentacja do Jakarta Commons BeanUtils
+Summary(pl.UTF-8):	Dokumentacja do Jakarta Commons BeanUtils
 Group:		Development/Languages/Java
 
 %description doc
