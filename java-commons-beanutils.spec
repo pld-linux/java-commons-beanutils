@@ -36,8 +36,8 @@ dynamicznego definiowania i dostępu do składowych.
 Summary:	Jakarta Commons BeanUtils documentation
 Summary(pl.UTF-8):	Dokumentacja do Jakarta Commons BeanUtils
 Group:		Documentation
-Obsoletes:	%{name}-doc
 Requires:	jpackage-utils
+Obsoletes:	jakarta-commons-beanutils-doc
 
 %description javadoc
 Jakarta Commons BeanUtils documentation.
