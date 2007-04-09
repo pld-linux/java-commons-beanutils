@@ -5,14 +5,18 @@ Version:	1.7.0
 Release:	1
 License:	Apache
 Group:		Development/Languages/Java
-Source0:	http://www.apache.org/dist/jakarta/commons/beanutils/binaries/commons-beanutils-%{version}.tar.gz
-# Source0-md5:	d1571ce9d6ec3d1795364cc44f3d116e
+Source0:	http://archive.apache.org/dist/jakarta/commons/beanutils/source/commons-beanutils-%{version}-src.zip
+# Source0-md5:	9d320be7faefd9b260983dbc57f03875
 URL:		http://jakarta.apache.org/commons/beanutils/
+BuildRequires:	jakarta-commons-beanutils
+BuildRequires:	jakarta-commons-collections
+BuildRequires:	jakarta-commons-logging
+BuildRequires:	jpackage-utils
+BuildRequires:	junit
+BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_javalibdir	%{_datadir}/java
 
 %description
 The Bean Introspection Utilities component of the Jakarta Commons
@@ -28,34 +32,60 @@ ustawianiu wartości składowych klas Javy zgodnych ze wzorcami
 nazewnictwa określonymi w specyfikacji JavaBeans oraz mechanizmy do
 dynamicznego definiowania i dostępu do składowych.
 
-%package doc
+%package javadoc
 Summary:	Jakarta Commons BeanUtils documentation
 Summary(pl.UTF-8):	Dokumentacja do Jakarta Commons BeanUtils
-Group:		Development/Languages/Java
+Group:		Documentation
+Obsoletes:	%{name}-doc
+Requires:	jpackage-utils
 
-%description doc
+%description javadoc
 Jakarta Commons BeanUtils documentation.
 
-%description doc -l pl.UTF-8
+%description javadoc -l pl.UTF-8
 Dokumentacja do Jakarta Commons BeanUtils.
 
 %prep
-%setup -q -n commons-beanutils-%{version}
+%setup -q -n commons-beanutils-%{version}-src
+
+%build
+# sources are not in ASCII
+export LC_ALL=en_US
+required_jars="commons-logging commons-collections"
+export CLASSPATH="`/usr/bin/build-classpath $required_jars`"
+%ant dist
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_javalibdir}
+install -d $RPM_BUILD_ROOT%{_javadir}
 
-install *.jar $RPM_BUILD_ROOT%{_javalibdir}
+for a in dist/*.jar; do
+	jar=${a##*/}
+	cp -a dist/$jar $RPM_BUILD_ROOT%{_javadir}/${jar%%.jar}-%{version}.jar
+	ln -s ${jar%%.jar}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/$jar
+done
+
+# javadoc
+install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+cp -pr dist/docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post javadoc
+rm -f %{_javadocdir}/%{name}
+ln -s %{name}-%{version} %{_javadocdir}/%{name}
+
+%postun javadoc
+if [ "$1" = "0" ]; then
+	rm -f %{_javadocdir}/%{name}
+fi
+
 %files
 %defattr(644,root,root,755)
 %doc *.txt
-%{_javalibdir}/*.jar
+%{_javadir}/*.jar
 
-%files doc
+%files javadoc
 %defattr(644,root,root,755)
-%doc docs
+%{_javadocdir}/%{name}-%{version}
