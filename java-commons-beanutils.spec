@@ -8,7 +8,6 @@ Group:		Development/Languages/Java
 Source0:	http://archive.apache.org/dist/jakarta/commons/beanutils/source/commons-beanutils-%{version}-src.zip
 # Source0-md5:	9d320be7faefd9b260983dbc57f03875
 URL:		http://jakarta.apache.org/commons/beanutils/
-#BuildRequires:	jakarta-commons-beanutils
 BuildRequires:	jakarta-commons-collections
 BuildRequires:	jakarta-commons-logging
 BuildRequires:	jpackage-utils
