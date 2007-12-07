@@ -17,7 +17,7 @@ BuildRequires:	junit
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
-Suggests:	jakarta-commons-collectsion
+Suggests:	jakarta-commons-collections
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
