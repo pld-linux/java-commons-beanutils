@@ -1,14 +1,18 @@
+#
+# Conditional build:
+%bcond_without	javadoc		# don't build javadoc
+
 %include	/usr/lib/rpm/macros.java
 Summary:	Jakarta Commons BeanUtils - Bean Introspection Utilities
 Summary(pl.UTF-8):	Jakarta Commons BeanUtils - narzędzia do badania JavaBeans
-Name:		jakarta-commons-beanutils
+Name:		java-commons-beanutils
 Version:	1.7.0
 Release:	3
 License:	Apache
-Group:		Development/Languages/Java
+Group:		Libraries/Java
 Source0:	http://www.apache.org/dist/commons/beanutils/source/commons-beanutils-%{version}-src.tar.gz
 # Source0-md5:	3fd5cbdf70363b151de5cd538f726e67
-Patch0:		%{name}-target.patch
+Patch0:		jakarta-commons-beanutils-target.patch
 URL:		http://commons.apache.org/beanutils/
 BuildRequires:	jakarta-commons-collections
 BuildRequires:	jakarta-commons-logging
@@ -17,6 +21,8 @@ BuildRequires:	junit
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
+Obsoletes:	jakarta-commons-beanutils
+Provides:	jakarta-commons-beanutils
 Suggests:	jakarta-commons-collections
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -63,17 +69,18 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
 
 # jars
-cp -a dist/commons-beanutils.jar $RPM_BUILD_ROOT%{_javadir}/commons-beanutils-%{version}.jar
-ln -s commons-beanutils-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/commons-beanutils.jar
 cp -a dist/commons-beanutils-core.jar $RPM_BUILD_ROOT%{_javadir}/commons-beanutils-core-%{version}.jar
 ln -s commons-beanutils-core-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/commons-beanutils-core.jar
+
 cp -a dist/commons-beanutils-bean-collections.jar $RPM_BUILD_ROOT%{_javadir}/commons-beanutils-bean-collections-%{version}.jar
 ln -s commons-beanutils-bean-collections-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/commons-beanutils-bean-collections.jar
 
 # javadoc
+%if %{with javadoc}
 install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -a dist/docs/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,7 +93,9 @@ ln -nfs %{name}-%{version} %{_javadocdir}/%{name}
 %doc *.txt
 %{_javadir}/*.jar
 
+%if %{with javadoc}
 %files javadoc
 %defattr(644,root,root,755)
 %{_javadocdir}/%{name}-%{version}
 %ghost %{_javadocdir}/%{name}
+%endif
