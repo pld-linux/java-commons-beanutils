@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	javadoc		# don't build javadoc
-
+#
 %include	/usr/lib/rpm/macros.java
 Summary:	Jakarta Commons BeanUtils - Bean Introspection Utilities
 Summary(pl.UTF-8):	Jakarta Commons BeanUtils - narzędzia do badania JavaBeans
@@ -21,9 +21,9 @@ BuildRequires:	junit
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
-Obsoletes:	jakarta-commons-beanutils
-Provides:	jakarta-commons-beanutils
 Suggests:	jakarta-commons-collections
+Provides:	jakarta-commons-beanutils
+Obsoletes:	jakarta-commons-beanutils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
