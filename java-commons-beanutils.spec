@@ -14,14 +14,14 @@ Source0:	http://www.apache.org/dist/commons/beanutils/source/commons-beanutils-%
 # Source0-md5:	3fd5cbdf70363b151de5cd538f726e67
 Patch0:		jakarta-commons-beanutils-target.patch
 URL:		http://commons.apache.org/beanutils/
-BuildRequires:	jakarta-commons-collections
-BuildRequires:	jakarta-commons-logging
+BuildRequires:	java-commons-collections
+BuildRequires:	java-commons-logging
 BuildRequires:	jpackage-utils
 BuildRequires:	junit
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jre
-Suggests:	jakarta-commons-collections
+Suggests:	java-commons-collections
 Provides:	jakarta-commons-beanutils
 Obsoletes:	jakarta-commons-beanutils
 BuildArch:	noarch
