@@ -30,15 +30,15 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The Bean Introspection Utilities component of the Commons
-subproject offers low-level utility classes that assist in getting and
-setting property values on Java classes that follow the naming design
-patterns outlined in the JavaBeans Specification, as well as
-mechanisms for dynamically defining and accessing bean properties.
+The Bean Introspection Utilities component of the Commons subproject
+offers low-level utility classes that assist in getting and setting
+property values on Java classes that follow the naming design patterns
+outlined in the JavaBeans Specification, as well as mechanisms for
+dynamically defining and accessing bean properties.
 
 %description -l pl.UTF-8
-Komponent Bean Instrospection Utilities z podprojektu Commons
-oferuje niskopoziomowe klasy narzędziowe pomagające w odczytywaniu i
+Komponent Bean Instrospection Utilities z podprojektu Commons oferuje
+niskopoziomowe klasy narzędziowe pomagające w odczytywaniu i
 ustawianiu wartości składowych klas Javy zgodnych ze wzorcami
 nazewnictwa określonymi w specyfikacji JavaBeans oraz mechanizmy do
 dynamicznego definiowania i dostępu do składowych.
