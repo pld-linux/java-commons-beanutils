@@ -15,7 +15,7 @@ Summary(pl.UTF-8):	Commons BeanUtils - narzędzia do badania JavaBeans
 Name:		java-commons-beanutils
 Version:	1.7.0
 Release:	4
-License:	Apache
+License:	Apache v2.0
 Group:		Libraries/Java
 Source0:	http://www.apache.org/dist/commons/beanutils/source/commons-beanutils-%{version}-src.tar.gz
 # Source0-md5:	3fd5cbdf70363b151de5cd538f726e67
@@ -25,7 +25,6 @@ BuildRequires:	java-commons-collections
 BuildRequires:	java-commons-logging
 %{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
 %{?with_java_sun:BuildRequires:	java-sun}
-BuildRequires:	java-gcj-compat-devel
 BuildRequires:	jpackage-utils
 BuildRequires:	junit
 BuildRequires:	rpm >= 4.4.9-56
