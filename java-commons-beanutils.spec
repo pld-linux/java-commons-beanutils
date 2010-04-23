@@ -1,12 +1,6 @@
 #
 # Conditional build:
 %bcond_without	javadoc		# don't build javadoc
-%if "%{pld_release}" == "ti"
-%bcond_without	java_sun	# build with gcj
-%else
-%bcond_with	java_sun	# build with java-sun
-%endif
-#
 %include	/usr/lib/rpm/macros.java
 #
 %define		srcname	commons-beanutils
@@ -23,11 +17,9 @@ Patch0:		jakarta-commons-beanutils-target.patch
 URL:		http://commons.apache.org/beanutils/
 BuildRequires:	java-commons-collections
 BuildRequires:	java-commons-logging
-%{!?with_java_sun:BuildRequires:	java-gcj-compat-devel}
-%{?with_java_sun:BuildRequires:	java-sun}
+BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	junit
-BuildRequires:	rpm >= 4.4.9-56
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Suggests:	java-commons-collections
