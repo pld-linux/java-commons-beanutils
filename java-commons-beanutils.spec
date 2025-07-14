@@ -56,7 +56,7 @@ Dokumentacja do Commons BeanUtils.
 
 %prep
 %setup -q -n commons-beanutils-%{version}-src
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 required_jars="commons-logging commons-collections"
